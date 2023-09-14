@@ -1,9 +1,9 @@
 import csv
-
+import argparse
 
 def read_line(path, row_c, col_c):
-    with open(path, newline='') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+    with open(path) as csvfile:
+        spamreader = csv.reader(csvfile)
         i = 0
         for row in spamreader:
             if i == row_c:
@@ -15,5 +15,10 @@ def read_line(path, row_c, col_c):
 
 
 if __name__ == '__main__':
-    read_line('example.csv', 1, 5)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('path', type=str)
+    parser.add_argument('row', type=int)
+    parser.add_argument('col', type=int)
+    args = parser.parse_args()
+    read_line(args.path, args.row, args.col)
 

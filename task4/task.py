@@ -7,7 +7,6 @@ def task():
     Ha = 0
     Hb = 0
     Ha_b = 0
-    H_add = 0
     count = [0 for _ in range(14)]
     for y in range(1, 7):
         for x in range(1, 7):
